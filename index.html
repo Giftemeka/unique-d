@@ -192,6 +192,7 @@
         <a href="#updates" data-nav-filter="Fitness">Fitness</a>
         <a href="#updates" data-nav-filter="Wellbeing">Wellbeing</a>
         <a href="#accessibility">Accessible living</a>
+        <a href="./biofluid-health-monitor/index.html">Biofluid Health Monitor</a>
       </nav>
       <div class="header-tools" aria-label="Listening tools">
         <button class="tool-button" id="read-page" type="button" aria-label="Read page aloud" title="Read page aloud"><span aria-hidden="true">▶</span> Listen</button>
@@ -250,7 +251,7 @@
         <button class="filter-button" type="button" data-filter="Wellbeing" aria-pressed="false">Wellbeing</button>
         <button class="filter-button" type="button" data-filter="Assistive technology" aria-pressed="false">Assistive technology</button>
       </div>
-      <p class="results-note" id="results-note" aria-live="polite">Showing all 4 sample briefings.</p>
+      <p class="results-note" id="results-note" aria-live="polite">Showing all 5 updates.</p>
       <div class="stories" id="stories">
         <article class="story" data-category="Health" data-search="health routine accessible appointments digital reminders personal care">
           <div class="story-meta"><span>Health</span><span>4 min read</span></div>
@@ -275,6 +276,12 @@
           <h3>Choose digital tools around your needs</h3>
           <p>Screen readers, captions and voice controls can make digital health services easier to use. Explore built-in settings and keep the tools that fit your routine.</p>
           <div class="story-tools"><a href="#accessibility">Read briefing <span aria-hidden="true">→</span></a><button class="button-outline speak-button" type="button" data-speak="Choose digital tools around your needs. Screen readers, captions and voice controls can make digital health services easier to use. Explore built-in settings and keep the tools that fit your routine." aria-label="Read assistive technology briefing aloud"><span aria-hidden="true">▶</span> Listen</button></div>
+        </article>
+        <article class="story" data-category="Health" data-search="biofluid health monitor personal health monitoring biomarker trends smart shoe hearing aid connected care provider follow-up">
+          <div class="story-meta"><span>Health</span><span>Featured concept</span></div>
+          <h3>Biofluid Health Monitor</h3>
+          <p>Explore a concept for bringing validated biofluid measurements together with smart-shoe mobility signals and accessible hearing-aid reminders, with optional sharing for care-team review.</p>
+          <div class="story-tools"><a href="./biofluid-health-monitor/index.html">Open Biofluid Health Monitor <span aria-hidden="true">→</span></a><button class="button-outline speak-button" type="button" data-speak="Biofluid Health Monitor. A concept for bringing validated biofluid measurements together with smart-shoe mobility signals and accessible hearing-aid reminders, with optional sharing for care-team review." aria-label="Read Biofluid Health Monitor update aloud"><span aria-hidden="true">▶</span> Listen</button></div>
         </article>
       </div>
     </section>
@@ -321,8 +328,8 @@
           if (!story.hidden) shown += 1;
         });
         const countLabel = activeFilter === "All"
-          ? `${shown} sample ${shown === 1 ? "briefing" : "briefings"}`
-          : `${shown} ${activeFilter} ${shown === 1 ? "briefing" : "briefings"}`;
+          ? `${shown} ${shown === 1 ? "update" : "updates"}`
+          : `${shown} ${activeFilter} ${shown === 1 ? "update" : "updates"}`;
         resultsNote.textContent = shown
           ? `Showing ${countLabel}${query ? ` matching “${search.value.trim()}”` : ""}.`
           : "No briefings match. Try another topic or search term.";
