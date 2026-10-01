@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biofluid Health Monitor</title>
+    <meta
+      name="description"
+      content="Biofluid Health Monitor connects personal health tracking with secure hospital coordination for better outcomes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="brand-mark">B</div>
+          <div>
+            <p class="eyebrow">Connected care</p>
+            <h1>Biofluid</h1>
+          </div>
+        </div>
+
+        <nav class="topnav" aria-label="Main navigation">
+          <a href="#overview">Overview</a>
+          <a href="#project">Project write-up</a>
+          <a href="#hospital">Hospital link</a>
+          <a href="#individual-view">Diagnostic view</a>
+          <a href="#who-benefits">Who it helps</a>
+          <a href="#provider-record">Provider records</a>
+          <a href="#outcomes">Outcomes</a>
+        </nav>
+
+        <button class="primary-btn">Live sync</button>
+      </header>
+
+      <main class="dashboard" id="overview">
+        <section class="hero-card glass-panel hero-art" style="--bg-image: url('assets/22.webp');">
+          <div class="hero-copy">
+            <p class="eyebrow accent">Personal health intelligence</p>
+            <h2>Biofluid Health Monitor</h2>
+            <p>
+              A secure digital companion for individuals to track daily wellness, monitor meaningful signals,
+              and share a concise, trusted summary with hospital teams for improved care decisions and outcomes.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-btn" id="addReadingBtn">Add patient reading</button>
+              <button class="secondary-btn">Send summary</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="metrics-grid" aria-label="Health metrics">
+          <article class="metric-card glass-panel">
+            <div class="metric-header">
+              <span>Heart rate</span>
+              <span class="badge stable">Stable</span>
+            </div>
+            <div class="metric-value">72 <small>bpm</small></div>
+            <div class="sparkline spark-heart" aria-hidden="true"></div>
+          </article>
+
+          <article class="metric-card glass-panel">
+            <div class="metric-header">
+              <span>Blood pressure</span>
+              <span class="badge good">Healthy</span>
+            </div>
+            <div class="metric-value">118/76 <small>mmHg</small></div>
+            <div class="sparkline spark-bp" aria-hidden="true"></div>
+          </article>
+
+          <article class="metric-card glass-panel">
+            <div class="metric-header">
+              <span>Oxygen</span>
+              <span class="badge good">Strong</span>
+            </div>
+            <div class="metric-value">98% <small>SpO₂</small></div>
+            <div class="sparkline spark-o2" aria-hidden="true"></div>
+          </article>
+
+          <article class="metric-card glass-panel">
+            <div class="metric-header">
+              <span>Hydration</span>
+              <span class="badge watch">Monitor</span>
+            </div>
+            <div class="metric-value">2.1L <small>today</small></div>
+            <div class="sparkline spark-glucose" aria-hidden="true"></div>
+          </article>
+        </section>
+
+        <section class="content-grid" id="project">
+          <article class="panel glass-panel writeup-panel background-panel" style="--bg-image: url('assets/1.webp');">
+            <div class="panel-header overlay-box">
+              <h3>Project write-up</h3>
+              <span class="tag">Demo concept</span>
+            </div>
+            <div class="overlay-box">
+              <p>
+                Biofluid Health Monitor is designed for individuals who want a better understanding of their daily health,
+                without the complexity of traditional systems. The platform focuses on clear trends, safe monitoring, and
+                secure communication with care teams. It helps people track lifestyle habits, daily recovery milestones,
+                and early signs that may require attention.
+              </p>
+              <p>
+                The product is intended to bridge personal health data with hospital-linked care pathways. By summarizing
+                a patient’s condition in a readable format, it allows physicians, nurses, and care coordinators to act more
+                quickly, improve discharge planning, and support chronic and post-discharge follow-up.
+              </p>
+              <p>
+                Where a specific biofluid test has been clinically validated, monitoring may offer a less-invasive way
+                to collect repeat measurements and follow changes over time, potentially reducing the need for some
+                repeat invasive sampling. This can make follow-up more convenient and help people discuss trends with
+                their care team. Biofluid monitoring is not a general substitute for biopsy: when tissue is needed to
+                confirm a diagnosis or guide treatment, a clinician may still recommend biopsy or other testing.
+              </p>
+            </div>
+          </article>
+
+          <article class="panel glass-panel image-panel background-panel" style="--bg-image: url('assets/16.avif');">
+            <div class="panel-header overlay-box">
+              <h3>Clinical snapshot</h3>
+              <span class="pulse-dot"></span>
+            </div>
+            <div class="overlay-box vertical-box">
+              <p>Precision diagnostics, continuous tracking, and coordinated care pathways for improved outcomes.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="connected-care" id="hospital">
+          <div class="connected-header">
+            <p class="eyebrow accent">Connected care</p>
+            <h3>Biofluid-enabled daily life and assistive support</h3>
+          </div>
+
+          <div class="connected-grid">
+            <article class="care-spotlight">
+              <div class="care-copy">
+                <span class="tag">Biofluid + movement</span>
+                <h4>Smart mobility</h4>
+                <ul class="care-points">
+                  <li><strong>Biofluid input</strong> A compatible sensor could analyze a validated sample for selected biomarkers.</li>
+                  <li><strong>Shoe context</strong> Steps, gait, foot pressure, and temperature can add everyday mobility context.</li>
+                  <li><strong>Individual benefit</strong> Review trends over time and share relevant changes with a care team. The shoe does not diagnose.</li>
+                </ul>
+              </div>
+              <figure class="care-visual">
+                <img src="assets/15.webp" alt="Smart shoe concept with embedded lights and sensors" />
+                <figcaption>Smart shoe concept</figcaption>
+              </figure>
+            </article>
+
+            <article class="care-spotlight">
+              <div class="care-copy">
+                <span class="tag">Biofluid + hearing</span>
+                <h4>Assistive listening</h4>
+                <ul class="care-points">
+                  <li><strong>Biofluid input</strong> A compatible test could send a validated result to the person’s paired app.</li>
+                  <li><strong>Hearing-aid context</strong> Wear time and optional sound-exposure signals can add daily-life context.</li>
+                  <li><strong>Individual benefit</strong> Spoken or in-app prompts can make reminders and trend summaries easier to access.</li>
+                </ul>
+              </div>
+              <figure class="care-visual">
+                <img src="assets/17.webp" alt="Smart hearing aid and companion phone concept" />
+                <figcaption>Hearing aid and companion app concept</figcaption>
+              </figure>
+            </article>
+          </div>
+
+          <aside class="integration-note" aria-labelledby="integrationAim">
+            <h4 id="integrationAim">Aim and importance</h4>
+            <p>
+              The aim is to bring relevant biofluid measurements together with everyday signals from devices people already
+              use, then present the combined picture in a clear, accessible way. This may support earlier conversations,
+              more personalized follow-up, and better continuity between home and hospital care. Biomarkers, sensors,
+              thresholds, and clinical benefits would need validation, privacy safeguards, and clinician oversight before
+              any real-world medical use; this dashboard is a concept demonstration using mock data.
+            </p>
+          </aside>
+        </section>
+
+        <section class="individual-view" id="individual-view" aria-labelledby="individualViewTitle">
+          <div class="individual-view-heading">
+            <div>
+              <p class="eyebrow accent">Individual dashboard</p>
+              <h3 id="individualViewTitle">Your connected diagnostic view</h3>
+              <p class="individual-view-intro">
+                A concept for bringing a compatible biofluid test together with daily signals from smart shoes and hearing aids.
+              </p>
+            </div>
+            <span class="tag demo-tag">Simulated data · Not a diagnosis</span>
+          </div>
+
+          <div class="individual-view-grid">
+            <article class="panel glass-panel diagnostic-summary">
+              <div class="panel-header">
+                <h4>Today's signal summary</h4>
+                <span class="sync-tag">Example day</span>
+              </div>
+
+              <div class="device-reading">
+                <div class="reading-icon fluid-icon" aria-hidden="true">B</div>
+                <div class="reading-copy">
+                  <div class="reading-title"><strong>Biofluid sample</strong><span>08:30</span></div>
+                  <p>Compatible home test recorded a selected marker trend against this person’s baseline.</p>
+                </div>
+                <span class="reading-state">Received</span>
+              </div>
+
+              <div class="device-reading">
+                <div class="reading-icon shoe-icon" aria-hidden="true">S</div>
+                <div class="reading-copy">
+                  <div class="reading-title"><strong>Smart shoes</strong><span>All day</span></div>
+                  <p>Steps, gait pattern, and foot-pressure balance add movement and mobility context.</p>
+                </div>
+                <span class="reading-state">Paired</span>
+              </div>
+
+              <div class="device-reading">
+                <div class="reading-icon hearing-icon" aria-hidden="true">H</div>
+                <div class="reading-copy">
+                  <div class="reading-title"><strong>Smart hearing aids</strong><span>08:42</span></div>
+                  <p>Wear time and optional sound-exposure context sync through the paired app.</p>
+                </div>
+                <span class="reading-state">Paired</span>
+              </div>
+
+              <div class="interpretation-note">
+                <strong>Personal trend review</strong>
+                <p>The app can compare incoming signals with an individual’s agreed baseline and care plan. Persistent or concerning changes should be reviewed with a healthcare professional.</p>
+              </div>
+            </article>
+
+            <article class="panel glass-panel diagnostic-flow">
+              <div class="panel-header">
+                <h4>How it works for you</h4>
+                <span class="tag">Concept flow</span>
+              </div>
+              <ol class="flow-list">
+                <li><span>1</span><div><strong>Record</strong><p>A compatible sensor or home test captures a biofluid measurement.</p></div></li>
+                <li><span>2</span><div><strong>Add context</strong><p>Shoes contribute mobility signals; hearing aids contribute wear and optional listening context.</p></div></li>
+                <li><span>3</span><div><strong>Review</strong><p>The individual sees a plain-language trend and any care-plan reminder, not an automated diagnosis.</p></div></li>
+                <li><span>4</span><div><strong>Choose to share</strong><p>The person can share a concise summary with their care team for professional review.</p></div></li>
+              </ol>
+            </article>
+          </div>
+        </section>
+
+        <section class="user-benefits" id="who-benefits" aria-labelledby="whoBenefitsTitle">
+          <div class="user-benefits-heading">
+            <div>
+              <p class="eyebrow accent">Designed around daily life</p>
+              <h3 id="whoBenefitsTitle">Who may benefit</h3>
+            </div>
+            <p>For individuals who want a clearer view of personal trends and an easier way to discuss them with their care team.</p>
+          </div>
+
+          <div class="benefit-grid">
+            <article class="benefit-card glass-panel">
+              <span class="benefit-index">01</span>
+              <h4>People following an ongoing care plan</h4>
+              <p>Bring selected readings, activity, and personal notes into one view. Reviewing trends can help people prepare questions and share a concise update at appointments.</p>
+            </article>
+
+            <article class="benefit-card glass-panel">
+              <span class="benefit-index">02</span>
+              <h4>People recovering at home</h4>
+              <p>Keep a simple record of daily progress between follow-ups. Mobility context from smart shoes and agreed measurements may help the person and care team discuss recovery changes.</p>
+            </article>
+
+            <article class="benefit-card glass-panel">
+              <span class="benefit-index">03</span>
+              <h4>People using mobility or hearing support</h4>
+              <p>Connect movement signals with accessible app or spoken reminders, so health information can fit more naturally into daily routines and individual communication preferences.</p>
+            </article>
+          </div>
+
+          <p class="benefit-caveat">The app is a concept for supported self-monitoring, not a substitute for diagnosis or treatment. Device use and measurements should be chosen with a healthcare professional.</p>
+        </section>
+
+        <section class="provider-integration" id="provider-record" aria-labelledby="providerRecordTitle">
+          <div class="provider-heading">
+            <p class="eyebrow accent">Provider interoperability</p>
+            <h3 id="providerRecordTitle">From personal devices to the provider record</h3>
+            <p>After a one-time, patient-authorized setup, supported readings could sync as structured data to a participating provider system, avoiding re-entry and word-of-mouth handoffs.</p>
+          </div>
+
+          <div class="provider-integration-grid">
+            <article class="panel glass-panel">
+              <div class="panel-header">
+                <h4>Proposed automated flow</h4>
+                <span class="tag">FHIR / API concept</span>
+              </div>
+              <ol class="flow-list">
+                <li><span>1</span><div><strong>Authorize once</strong><p>The individual verifies their identity, selects a participating provider, and grants scoped data-sharing permission. Access can be revoked.</p></div></li>
+                <li><span>2</span><div><strong>Capture structured readings</strong><p>The companion app packages supported biofluid results and shoe or hearing-aid signals with timestamps, units, and device/source details.</p></div></li>
+                <li><span>3</span><div><strong>Transmit securely</strong><p>An approved, encrypted provider API can send mapped health data using standards such as FHIR, with authorization supported by the provider’s integration.</p></div></li>
+                <li><span>4</span><div><strong>Match and file for review</strong><p>The provider system matches the patient and routes permitted data into its record workflow. The care team reviews it under the provider’s policies.</p></div></li>
+              </ol>
+            </article>
+
+            <aside class="panel glass-panel provider-requirements">
+              <div class="panel-header">
+                <h4>What a real connection needs</h4>
+                <span class="sync-tag">Not connected in demo</span>
+              </div>
+              <ul>
+                <li>A participating provider and EHR vendor with an approved integration interface.</li>
+                <li>Verified patient matching, explicit consent, least-necessary data sharing, and an access/revocation trail.</li>
+                <li>Agreed data definitions, units, validation, error handling, and clinical review workflows.</li>
+              </ul>
+              <p class="integration-note provider-note">
+                This local prototype does not connect to a health record or send readings. FHIR/API connectivity, automatic filing, and clinical use would require provider approval, security and privacy review, and testing before deployment.
+              </p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="lower-grid">
+          <article class="panel glass-panel trend-panel background-panel" style="--bg-image: url('assets/10.jpg');">
+            <div class="panel-header overlay-box">
+              <h3>Weekly trends</h3>
+              <button class="ghost-btn">Export</button>
+            </div>
+            <div class="bars overlay-box" aria-label="Weekly chart">
+              <span style="--h: 54%"></span>
+              <span style="--h: 68%"></span>
+              <span style="--h: 72%"></span>
+              <span style="--h: 61%"></span>
+              <span style="--h: 82%"></span>
+              <span style="--h: 76%"></span>
+              <span style="--h: 89%"></span>
+            </div>
+            <div class="chart-labels overlay-box">
+              <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+            </div>
+          </article>
+
+          <article class="panel glass-panel hospital-panel background-panel" style="--bg-image: url('assets/19.webp');">
+            <div class="panel-header">
+              <h3>Provider connection status</h3>
+              <span class="sync-tag">Not connected</span>
+            </div>
+            <div class="hospital-card">
+              <div>
+                <p class="muted">Integration target</p>
+                <strong>Provider EHR · example only</strong>
+              </div>
+              <div>
+                <p class="muted">Authorization</p>
+                <strong>Not configured</strong>
+              </div>
+            </div>
+            <div class="summary-row">
+              <span>Interface</span>
+              <strong>FHIR / API concept</strong>
+            </div>
+            <div class="summary-row">
+              <span>Automatic record sync</span>
+              <strong>Not available in demo</strong>
+            </div>
+            <div class="summary-row">
+              <span>Data shown</span>
+              <strong>Mock readings only</strong>
+            </div>
+          </article>
+        </section>
+
+        <section class="bottom-grid" id="outcomes">
+          <article class="panel glass-panel alert-panel">
+            <div class="panel-header">
+              <h3>Care alerts</h3>
+              <span class="pulse-dot"></span>
+            </div>
+            <ul class="alert-list">
+              <li>
+                <strong>Hydration</strong>
+                <span>2.1L today</span>
+              </li>
+              <li>
+                <strong>Medication</strong>
+                <span>Reminder due at 18:00</span>
+              </li>
+              <li>
+                <strong>Activity</strong>
+                <span>6,800 steps completed</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="panel glass-panel plan-panel background-panel" style="--bg-image: url('assets/20.webp');">
+            <div class="panel-header overlay-box">
+              <h3>Improved outcomes</h3>
+              <button class="ghost-btn" id="togglePlanBtn">Hide details</button>
+            </div>
+            <ul class="plan-list overlay-box">
+              <li><span class="check">✓</span> Faster hospital handoff from patient to care team</li>
+              <li><span class="check">✓</span> Better risk monitoring for chronic conditions</li>
+              <li><span class="check">✓</span> Timely follow-up and safer medication tracking</li>
+              <li><span class="check">✓</span> Improved patient engagement and care continuity</li>
+            </ul>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
