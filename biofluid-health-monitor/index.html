@@ -6,7 +6,7 @@
     <title>Biofluid Health Monitor</title>
     <meta
       name="description"
-      content="Biofluid Health Monitor connects personal health tracking with secure hospital coordination for better outcomes."
+      content="A concept for AI-supported, non-invasive-first health screening and monitoring using validated biofluid tests and everyday device context."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,9 +26,10 @@
 
         <nav class="topnav" aria-label="Main navigation">
           <a href="#overview">Overview</a>
+          <a href="#purpose">Purpose</a>
           <a href="#project">Project write-up</a>
           <a href="#hospital">Hospital link</a>
-          <a href="#individual-view">Diagnostic view</a>
+          <a href="#individual-view">Health insights</a>
           <a href="#who-benefits">Who it helps</a>
           <a href="#provider-record">Provider records</a>
           <a href="#outcomes">Outcomes</a>
@@ -40,11 +41,14 @@
       <main class="dashboard" id="overview">
         <section class="hero-card glass-panel hero-art" style="--bg-image: url('assets/22.webp');">
           <div class="hero-copy">
-            <p class="eyebrow accent">Personal health intelligence</p>
+            <p class="eyebrow accent">AI-assisted · non-invasive-first concept</p>
             <h2>Biofluid Health Monitor</h2>
             <p>
-              A secure digital companion for individuals to track daily wellness, monitor meaningful signals,
-              and share a concise, trusted summary with hospital teams for improved care decisions and outcomes.
+              The aim is simple and patient-centered: bring clinically validated biofluid insights into everyday health
+              conversations without asking people to rely on invasive testing when a lower-burden option is appropriate.
+              By combining a validated sample result with signals from smart shoes and hearing aids, the app helps people
+              understand change, review trends, and share better context with their care team. The goal is to add clarity,
+              not replace professional judgement or confirmatory diagnosis.
             </p>
             <div class="hero-actions">
               <button class="primary-btn" id="addReadingBtn">Add patient reading</button>
@@ -91,6 +95,32 @@
           </article>
         </section>
 
+        <section class="purpose-grid" id="purpose" aria-labelledby="purposeTitle">
+          <article class="purpose-card glass-panel">
+            <p class="eyebrow accent">Purpose</p>
+            <h3 id="purposeTitle">Designed to support earlier insight and safer follow-up.</h3>
+            <p>The solution exists to help people understand meaningful health changes earlier, without making a diagnosis from a single signal or forcing unnecessary invasive testing.</p>
+          </article>
+
+          <article class="purpose-card glass-panel">
+            <p class="eyebrow accent">Use</p>
+            <h4>Track daily patterns that matter</h4>
+            <p>Validated biofluid results can be reviewed alongside movement, hydration, and device-use context to build a more complete picture of how a person is doing.</p>
+          </article>
+
+          <article class="purpose-card glass-panel">
+            <p class="eyebrow accent">Driven by need</p>
+            <h4>Reduce unnecessary burden</h4>
+            <p>Where clinically appropriate, the aim is to reduce avoidable needle-based or tissue-based sampling while preserving human review and confirmatory testing when needed.</p>
+          </article>
+
+          <article class="purpose-card glass-panel">
+            <p class="eyebrow accent">Solution</p>
+            <h4>Bring clarity to people and providers</h4>
+            <p>AI can summarize data quality, trends, and uncertainty in everyday language so individuals can prepare better questions and providers can review a clearer handoff.</p>
+          </article>
+        </section>
+
         <section class="content-grid" id="project">
           <article class="panel glass-panel writeup-panel background-panel" style="--bg-image: url('assets/1.webp');">
             <div class="panel-header overlay-box">
@@ -99,22 +129,24 @@
             </div>
             <div class="overlay-box">
               <p>
-                Biofluid Health Monitor is designed for individuals who want a better understanding of their daily health,
-                without the complexity of traditional systems. The platform focuses on clear trends, safe monitoring, and
-                secure communication with care teams. It helps people track lifestyle habits, daily recovery milestones,
-                and early signs that may require attention.
+                Biofluid Health Monitor is a concept for a non-invasive-first health assessment and monitoring pathway.
+                Its aim is to help people and care teams interpret a clinically validated biofluid signal in the wider
+                context of everyday life, rather than treating a single test result as a full diagnosis. Where a test for
+                a specific condition has been validated, an accessible sample and its measured biomarkers could provide an
+                additional signal without unnecessary tissue sampling.
               </p>
               <p>
-                The product is intended to bridge personal health data with hospital-linked care pathways. By summarizing
-                a patient’s condition in a readable format, it allows physicians, nurses, and care coordinators to act more
-                quickly, improve discharge planning, and support chronic and post-discharge follow-up.
+                The app is driven by a practical purpose: give people a clearer view of trends, reduce unnecessary burden,
+                and support earlier conversation with a clinician when something may deserve review. AI can check data quality,
+                compare repeat measurements with an agreed personal baseline, and explain notable trends or uncertainty in
+                plain language. It would support screening, triage, and follow-up—not make an autonomous diagnosis or
+                treatment decision.
               </p>
               <p>
-                Where a specific biofluid test has been clinically validated, monitoring may offer a less-invasive way
-                to collect repeat measurements and follow changes over time, potentially reducing the need for some
-                repeat invasive sampling. This can make follow-up more convenient and help people discuss trends with
-                their care team. Biofluid monitoring is not a general substitute for biopsy: when tissue is needed to
-                confirm a diagnosis or guide treatment, a clinician may still recommend biopsy or other testing.
+                The long-term solution is to pair a validated biofluid result with context from smart shoes, hearing aids,
+                and other consented signals, then route concerning or uncertain findings to a qualified professional for
+                assessment. This cannot replace all diagnosis: some conditions need tissue information, imaging, or standard
+                laboratory tests, and any abnormal result may need clinical interpretation before treatment decisions.
               </p>
             </div>
           </article>
@@ -125,7 +157,7 @@
               <span class="pulse-dot"></span>
             </div>
             <div class="overlay-box vertical-box">
-              <p>Precision diagnostics, continuous tracking, and coordinated care pathways for improved outcomes.</p>
+              <p>AI-supported trend review can connect validated test results with daily-life context and prompt appropriate clinical follow-up.</p>
             </div>
           </article>
         </section>
@@ -142,9 +174,9 @@
                 <span class="tag">Biofluid + movement</span>
                 <h4>Smart mobility</h4>
                 <ul class="care-points">
-                  <li><strong>Biofluid input</strong> A compatible sensor could analyze a validated sample for selected biomarkers.</li>
+                  <li><strong>Biofluid input</strong> A future compatible reader could pair a validated assay result with the app; sample collection and test performance depend on the specific assay.</li>
                   <li><strong>Shoe context</strong> Steps, gait, foot pressure, and temperature can add everyday mobility context.</li>
-                  <li><strong>Individual benefit</strong> Review trends over time and share relevant changes with a care team. The shoe does not diagnose.</li>
+                  <li><strong>Individual benefit</strong> AI may summarize trends for review. Shoe signals provide context and do not diagnose or measure biomarkers on their own.</li>
                 </ul>
               </div>
               <figure class="care-visual">
@@ -158,9 +190,9 @@
                 <span class="tag">Biofluid + hearing</span>
                 <h4>Assistive listening</h4>
                 <ul class="care-points">
-                  <li><strong>Biofluid input</strong> A compatible test could send a validated result to the person’s paired app.</li>
-                  <li><strong>Hearing-aid context</strong> Wear time and optional sound-exposure signals can add daily-life context.</li>
-                  <li><strong>Individual benefit</strong> Spoken or in-app prompts can make reminders and trend summaries easier to access.</li>
+                  <li><strong>Biofluid input</strong> A result from a separate, validated assay could be shared with the paired app; the hearing aid is not assumed to test biofluids.</li>
+                  <li><strong>Hearing-aid context</strong> Optional wear or sound-exposure signals can add daily-life context, subject to device capability and consent.</li>
+                  <li><strong>Individual benefit</strong> Accessible spoken or in-app prompts can make AI-generated trend summaries and reminders easier to use.</li>
                 </ul>
               </div>
               <figure class="care-visual">
@@ -171,13 +203,15 @@
           </div>
 
           <aside class="integration-note" aria-labelledby="integrationAim">
-            <h4 id="integrationAim">Aim and importance</h4>
+            <h4 id="integrationAim">A non-invasive-first pathway, with clinical checks</h4>
             <p>
-              The aim is to bring relevant biofluid measurements together with everyday signals from devices people already
-              use, then present the combined picture in a clear, accessible way. This may support earlier conversations,
-              more personalized follow-up, and better continuity between home and hospital care. Biomarkers, sensors,
-              thresholds, and clinical benefits would need validation, privacy safeguards, and clinician oversight before
-              any real-world medical use; this dashboard is a concept demonstration using mock data.
+              Proposed pathway: use a validated, condition-specific biofluid assay; add optional shoe and hearing-aid
+              context; let AI summarize signal quality, trends, and uncertainty; then route concerning or inconclusive
+              results to a qualified care professional for assessment and any confirmatory testing. Some accessible
+              samples may avoid needles, but collection methods vary and not every condition has a suitable test.
+              Biomarkers, devices, algorithms, and clinical benefits require rigorous validation and appropriate
+              regulatory review before medical use. This dashboard is a concept demonstration with mock data, not a
+              diagnostic service.
             </p>
           </aside>
         </section>
@@ -186,9 +220,9 @@
           <div class="individual-view-heading">
             <div>
               <p class="eyebrow accent">Individual dashboard</p>
-              <h3 id="individualViewTitle">Your connected diagnostic view</h3>
+              <h3 id="individualViewTitle">Your AI-assisted health insights</h3>
               <p class="individual-view-intro">
-                A concept for bringing a compatible biofluid test together with daily signals from smart shoes and hearing aids.
+                A purpose-driven concept for bringing a validated biofluid result together with daily signals from smart shoes and hearing aids, to improve understanding without replacing clinical review.
               </p>
             </div>
             <span class="tag demo-tag">Simulated data · Not a diagnosis</span>
@@ -205,7 +239,7 @@
                 <div class="reading-icon fluid-icon" aria-hidden="true">B</div>
                 <div class="reading-copy">
                   <div class="reading-title"><strong>Biofluid sample</strong><span>08:30</span></div>
-                  <p>Compatible home test recorded a selected marker trend against this person’s baseline.</p>
+                  <p>Simulated result from a hypothetical, validated assay. A marker trend is a signal to interpret—not a diagnosis.</p>
                 </div>
                 <span class="reading-state">Received</span>
               </div>
@@ -229,8 +263,8 @@
               </div>
 
               <div class="interpretation-note">
-                <strong>Personal trend review</strong>
-                <p>The app can compare incoming signals with an individual’s agreed baseline and care plan. Persistent or concerning changes should be reviewed with a healthcare professional.</p>
+                <strong>AI trend summary · example only</strong>
+                <p>An appropriately validated model could summarize selected signals, data quality, and uncertainty against an agreed baseline. It must not diagnose or recommend treatment on its own; concerning changes need professional review.</p>
               </div>
             </article>
 
@@ -240,10 +274,10 @@
                 <span class="tag">Concept flow</span>
               </div>
               <ol class="flow-list">
-                <li><span>1</span><div><strong>Record</strong><p>A compatible sensor or home test captures a biofluid measurement.</p></div></li>
-                <li><span>2</span><div><strong>Add context</strong><p>Shoes contribute mobility signals; hearing aids contribute wear and optional listening context.</p></div></li>
-                <li><span>3</span><div><strong>Review</strong><p>The individual sees a plain-language trend and any care-plan reminder, not an automated diagnosis.</p></div></li>
-                <li><span>4</span><div><strong>Choose to share</strong><p>The person can share a concise summary with their care team for professional review.</p></div></li>
+                <li><span>1</span><div><strong>Use a validated test</strong><p>A condition-specific assay measures selected biomarkers from a suitable sample; collection may be non-invasive or minimally invasive.</p></div></li>
+                <li><span>2</span><div><strong>Add everyday context</strong><p>Smart shoes can contribute movement signals; hearing aids can support accessible prompts and, where available, optional device context.</p></div></li>
+                <li><span>3</span><div><strong>Let AI summarize, not diagnose</strong><p>A validated model could flag trends and uncertainty for review. The person sees what was measured and what the result cannot tell them.</p></div></li>
+                <li><span>4</span><div><strong>Escalate when needed</strong><p>A care professional interprets the result and decides whether follow-up, standard tests, imaging, or biopsy is appropriate.</p></div></li>
               </ol>
             </article>
           </div>
@@ -278,7 +312,7 @@
             </article>
           </div>
 
-          <p class="benefit-caveat">The app is a concept for supported self-monitoring, not a substitute for diagnosis or treatment. Device use and measurements should be chosen with a healthcare professional.</p>
+          <p class="benefit-caveat">This concept could become a non-invasive first-line screening or monitoring option for specific conditions only after clinical validation. It is not a complete alternative to medical diagnosis or biopsy when those are indicated, and it must not delay care.</p>
         </section>
 
         <section class="provider-integration" id="provider-record" aria-labelledby="providerRecordTitle">
