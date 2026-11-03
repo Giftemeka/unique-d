@@ -35,10 +35,20 @@
           <a href="#outcomes">Outcomes</a>
         </nav>
 
-        <button class="primary-btn">Live sync</button>
+        <div class="sync-control">
+          <button class="primary-btn" id="liveSyncBtn" type="button" aria-pressed="false">Enable demo sync</button>
+          <span class="sync-status" id="liveSyncStatus" role="status" aria-live="polite">
+            Demo sync is paused. Mock data only; no external connection.
+          </span>
+        </div>
       </header>
 
       <main class="dashboard" id="overview">
+        <aside class="demo-banner" role="note">
+          <strong>Prototype demo</strong>
+          <span>All dashboard and scanner values are synthetic placeholders, not real patient measurements or clinical advice.</span>
+        </aside>
+
         <section class="hero-card glass-panel hero-art" style="--bg-image: url('assets/22.webp');">
           <div class="hero-copy">
             <p class="eyebrow accent">AI-assisted · non-invasive-first concept</p>
@@ -51,8 +61,8 @@
               not replace professional judgement or confirmatory diagnosis.
             </p>
             <div class="hero-actions">
-              <button class="primary-btn" id="addReadingBtn">Add patient reading</button>
-              <button class="secondary-btn">Send summary</button>
+              <button class="primary-btn" id="addReadingBtn" type="button">Add demo reading</button>
+              <button class="secondary-btn" id="sendSummaryBtn" type="button">Review summary</button>
             </div>
           </div>
         </section>
@@ -63,7 +73,7 @@
               <span>Heart rate</span>
               <span class="badge stable">Stable</span>
             </div>
-            <div class="metric-value">72 <small>bpm</small></div>
+            <div class="metric-value" id="heartRateValue">72 <small>bpm</small></div>
             <div class="sparkline spark-heart" aria-hidden="true"></div>
           </article>
 
@@ -72,7 +82,7 @@
               <span>Blood pressure</span>
               <span class="badge good">Healthy</span>
             </div>
-            <div class="metric-value">118/76 <small>mmHg</small></div>
+            <div class="metric-value" id="bloodPressureValue">118/76 <small>mmHg</small></div>
             <div class="sparkline spark-bp" aria-hidden="true"></div>
           </article>
 
@@ -81,7 +91,7 @@
               <span>Oxygen</span>
               <span class="badge good">Strong</span>
             </div>
-            <div class="metric-value">98% <small>SpO₂</small></div>
+            <div class="metric-value" id="oxygenValue">98% <small>SpO₂</small></div>
             <div class="sparkline spark-o2" aria-hidden="true"></div>
           </article>
 
@@ -90,9 +100,20 @@
               <span>Hydration</span>
               <span class="badge watch">Monitor</span>
             </div>
-            <div class="metric-value">2.1L <small>today</small></div>
+            <div class="metric-value" id="hydrationValue">2.1L <small>today</small></div>
             <div class="sparkline spark-glucose" aria-hidden="true"></div>
           </article>
+        </section>
+
+        <section class="reading-history panel glass-panel" aria-labelledby="readingHistoryTitle">
+          <div class="panel-header">
+            <div>
+              <h3 id="readingHistoryTitle">Recent demo readings</h3>
+              <p class="reading-history-note">Simulated values for demonstration only; not a diagnosis.</p>
+            </div>
+            <span class="sync-tag">Local mock data</span>
+          </div>
+          <ol class="reading-history-list" id="readingHistoryList" aria-live="polite"></ol>
         </section>
 
         <section class="purpose-grid" id="purpose" aria-labelledby="purposeTitle">
@@ -319,8 +340,113 @@
           <div class="provider-heading">
             <p class="eyebrow accent">Provider interoperability</p>
             <h3 id="providerRecordTitle">From personal devices to the provider record</h3>
-            <p>After a one-time, patient-authorized setup, supported readings could sync as structured data to a participating provider system, avoiding re-entry and word-of-mouth handoffs.</p>
+            <p>Explore a local scanner simulation and mock receiver, plus a separate opt-in submission to BIGFIX’s synthetic FHIR R4 test record. No physical scanner or real clinical system is connected.</p>
           </div>
+
+          <article class="panel glass-panel scanner-demo" aria-labelledby="scannerDemoTitle">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow accent">Scanner simulation · local only</p>
+                <h4 id="scannerDemoTitle">Hospital scanner connectivity demo</h4>
+              </div>
+              <span class="sync-tag" id="scannerConnectionStatus">Simulator disconnected</span>
+            </div>
+
+            <p class="scanner-demo-warning">
+              The local mock receiver makes no network requests. The separate BIGFIX option sends only synthetic dashboard values after explicit approval. Do not enter real patient information.
+            </p>
+
+            <div class="scanner-demo-controls">
+              <label class="scanner-field" for="scannerType">
+                Demo device
+                <select id="scannerType">
+                  <option value="Biofluid Scanner Simulator">Biofluid Scanner Simulator</option>
+                  <option value="Assay Reader Simulator">Assay Reader Simulator</option>
+                </select>
+              </label>
+              <label class="scanner-field" for="hospitalTarget">
+                Demo destination
+                <select id="hospitalTarget">
+                  <option value="Training Hospital Sandbox">Training Hospital Sandbox</option>
+                  <option value="Care Coordination Sandbox">Care Coordination Sandbox</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="demo-consent" for="demoAuthorization">
+              <input id="demoAuthorization" type="checkbox" />
+              <span>I understand this authorizes a simulated workflow only, using synthetic data on this device.</span>
+            </label>
+
+            <div class="scanner-demo-actions">
+              <button class="primary-btn" id="connectScannerBtn" type="button" disabled>Connect simulator</button>
+              <button class="secondary-btn" id="disconnectScannerBtn" type="button" disabled>Disconnect</button>
+              <button class="secondary-btn" id="runScanBtn" type="button" disabled>Run simulated scan</button>
+              <button class="secondary-btn" id="sendToHospitalBtn" type="button" disabled>Send readings to mock EHR</button>
+            </div>
+
+            <p class="scanner-demo-status" id="scannerDemoStatus" role="status" aria-live="polite">
+              Review the demo notice and authorize the simulation to begin.
+            </p>
+
+            <div class="scanner-result" id="scannerResult" hidden>
+              <h5>Latest synthetic scan</h5>
+              <dl>
+                <div><dt>Sample</dt><dd id="scanSampleId"></dd></div>
+                <div><dt>Demo assay</dt><dd id="scanAssay"></dd></div>
+                <div><dt>Result</dt><dd id="scanValue"></dd></div>
+                <div><dt>Quality check</dt><dd id="scanQuality"></dd></div>
+                <div><dt>Handoff</dt><dd id="scanHandoffState">Not handed off</dd></div>
+              </dl>
+              <p class="scanner-result-note">Synthetic placeholder values only—not a validated test result or clinical guidance.</p>
+            </div>
+
+            <div class="scanner-event-panel">
+              <h5>Demo activity</h5>
+              <ol class="scanner-event-log" id="scannerEventLog" aria-live="polite">
+                <li>Waiting for demo authorization.</li>
+              </ol>
+            </div>
+
+            <div class="mock-ehr-panel" aria-labelledby="mockEhrTitle">
+              <div class="panel-header">
+                <div>
+                  <h5 id="mockEhrTitle">Local mock EHR receiver</h5>
+                  <p class="reading-history-note">FHIR-shaped demo records kept in this browser tab only.</p>
+                </div>
+                <span class="sync-tag" id="mockEhrStatus">Ready · local only</span>
+              </div>
+              <p class="mock-ehr-count" id="mockEhrCount" role="status" aria-live="polite">No readings received.</p>
+              <ol class="mock-ehr-records" id="mockEhrRecords">
+                <li>No records in this demo session.</li>
+              </ol>
+            </div>
+
+            <div class="bigfix-integration" aria-labelledby="bigfixIntegrationTitle">
+              <div class="panel-header">
+                <div>
+                  <h5 id="bigfixIntegrationTitle">BIGFIX FHIR R4 test endpoint</h5>
+                  <p class="reading-history-note">External test service · synthetic dashboard values only</p>
+                </div>
+                <span class="sync-tag" id="bigfixSubmissionBadge">Approval required</span>
+              </div>
+              <p class="bigfix-integration-copy">
+                With your approval, send the current demo metrics to BIGFIX’s readings API for its synthetic test record.
+                This sends data over the internet; it is separate from the local mock EHR above.
+              </p>
+              <p class="bigfix-test-patient">BIGFIX demo record: <strong>Margaret Ellis · BFX-4E7A21C9</strong></p>
+              <label class="demo-consent" for="bigfixConsent">
+                <input id="bigfixConsent" type="checkbox" />
+                <span>I approve sending these synthetic Biofluid demo readings to the BIGFIX test record shown above.</span>
+              </label>
+              <div class="scanner-demo-actions">
+                <button class="primary-btn" id="sendToBigfixBtn" type="button" disabled>Send synthetic readings to BIGFIX</button>
+              </div>
+              <p class="scanner-demo-status" id="bigfixStatus" role="status" aria-live="polite">
+                No new readings have been sent from this page session. Approval is required to send synthetic values; server authorization may also be required.
+              </p>
+            </div>
+          </article>
 
           <div class="provider-integration-grid">
             <article class="panel glass-panel">
@@ -339,7 +465,7 @@
             <aside class="panel glass-panel provider-requirements">
               <div class="panel-header">
                 <h4>What a real connection needs</h4>
-                <span class="sync-tag">Not connected in demo</span>
+                <span class="sync-tag">Real EHR not connected</span>
               </div>
               <ul>
                 <li>A participating provider and EHR vendor with an approved integration interface.</li>
@@ -347,7 +473,7 @@
                 <li>Agreed data definitions, units, validation, error handling, and clinical review workflows.</li>
               </ul>
               <p class="integration-note provider-note">
-                This local prototype does not connect to a health record or send readings. FHIR/API connectivity, automatic filing, and clinical use would require provider approval, security and privacy review, and testing before deployment.
+                The mock receiver above is browser-only. BIGFIX is an external synthetic test endpoint, not a production health record. Real clinical integration requires provider approval, verified patient matching, security and privacy review, and deployment testing.
               </p>
             </aside>
           </div>
@@ -357,7 +483,7 @@
           <article class="panel glass-panel trend-panel background-panel" style="--bg-image: url('assets/10.jpg');">
             <div class="panel-header overlay-box">
               <h3>Weekly trends</h3>
-              <button class="ghost-btn">Export</button>
+              <button class="ghost-btn" id="exportTrendsBtn" type="button">Export demo data</button>
             </div>
             <div class="bars overlay-box" aria-label="Weekly chart">
               <span style="--h: 54%"></span>
@@ -371,30 +497,31 @@
             <div class="chart-labels overlay-box">
               <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
             </div>
+            <p class="trend-export-status overlay-box" id="trendExportStatus" role="status" aria-live="polite"></p>
           </article>
 
           <article class="panel glass-panel hospital-panel background-panel" style="--bg-image: url('assets/19.webp');">
             <div class="panel-header">
-              <h3>Provider connection status</h3>
-              <span class="sync-tag">Not connected</span>
+              <h3>Provider system status</h3>
+              <span class="sync-tag">Mock EHR · local only</span>
             </div>
             <div class="hospital-card">
               <div>
                 <p class="muted">Integration target</p>
-                <strong>Provider EHR · example only</strong>
+                <strong id="providerTargetStatus">Training Hospital Sandbox · demo only</strong>
               </div>
               <div>
-                <p class="muted">Authorization</p>
-                <strong>Not configured</strong>
+                <p class="muted">Mock EHR receiver</p>
+                <strong id="providerAuthorizationStatus">Not active</strong>
               </div>
             </div>
             <div class="summary-row">
-              <span>Interface</span>
-              <strong>FHIR / API concept</strong>
+              <span>Demo interface</span>
+              <strong>Local simulation only</strong>
             </div>
             <div class="summary-row">
-              <span>Automatic record sync</span>
-              <strong>Not available in demo</strong>
+              <span>Hospital handoff</span>
+              <strong id="providerHandoffStatus">Not simulated</strong>
             </div>
             <div class="summary-row">
               <span>Data shown</span>
@@ -412,7 +539,7 @@
             <ul class="alert-list">
               <li>
                 <strong>Hydration</strong>
-                <span>2.1L today</span>
+                <span id="hydrationAlertValue">2.1L today</span>
               </li>
               <li>
                 <strong>Medication</strong>
@@ -440,6 +567,26 @@
         </section>
       </main>
     </div>
+
+    <dialog class="summary-dialog" id="summaryDialog" aria-labelledby="summaryTitle">
+      <div class="summary-dialog-content">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow accent">Local demo · mock readings</p>
+            <h2 id="summaryTitle">Health summary</h2>
+          </div>
+          <button class="ghost-btn" id="closeSummaryBtn" type="button" aria-label="Close summary">Close</button>
+        </div>
+        <p class="summary-disclaimer">This summary stays local until you choose Share, Copy, or Download. BIGFIX submissions are separate and require separate approval.</p>
+        <pre class="summary-text" id="summaryText"></pre>
+        <p class="summary-status" id="summaryStatus" role="status" aria-live="polite"></p>
+        <div class="summary-actions">
+          <button class="primary-btn" id="shareSummaryBtn" type="button">Share…</button>
+          <button class="secondary-btn" id="copySummaryBtn" type="button">Copy</button>
+          <button class="secondary-btn" id="downloadSummaryBtn" type="button">Download</button>
+        </div>
+      </div>
+    </dialog>
 
     <script src="app.js"></script>
   </body>
